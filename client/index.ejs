@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width" maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0 />
+    <title>App</title>
+  </head>
+
+  <body>
+    <div id="appBootElement"></div>
+    <script>
+      // For detecting uncaught errors.  Word to your motherboard.
+      //
+      window.onerror = function (errorMsg, url, lineNumber, columnNumber, errorObj) {
+        var appBootElement = document.getElementById('appBootElement');
+        // appBootElement.innerHTML = '<div><span>msg: </span><span>' + errorMsg + '</span></div>'
+        //                         + '<div><span>url: </span><span>' + url + '</span></div>'
+        //                         + '<div><span>lineNumber: </span><span>' + lineNumber + '</span></div>'
+        //                         + '<div><span>columnNumber: </span><span>' + columnNumber + '</span></div>'
+        //                         + '<div><span>errorObj: </span><span>' + JSON.stringify(errorObj, null, 2) + '</span></div>';
+        console.error('window.onerror ', errorMsg, url, lineNumber, columnNumber, errorObj);
+      }
+    </script>
+  </body>
+
+</html>
