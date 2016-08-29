@@ -14,7 +14,38 @@ html>body .content {
 }
 
 .hero {
+  // background: url(../images/cat-bug-icon.png) center center / 75% 75% no-repeat scroll #f9f9f9;
   background: url(../images/cat-bug-icon.png) center center no-repeat scroll #f9f9f9;
+}
+
+.tiles {
+  padding: .5vw;
+  font-size: 0;
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+  -ms-flex-direction: column;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  display: -webkit-box;
+  display: flex;
+}
+
+.tiles div {
+  -webkit-box-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  width: 200px;
+  margin: .5vw;
+}
+
+section div img {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 400px) {
+  section div { margin: 0; }
+  section { padding: 0; }
 }
 
 .socialBar {
