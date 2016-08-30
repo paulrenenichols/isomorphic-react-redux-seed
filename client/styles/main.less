@@ -1,65 +1,19 @@
-/* Base Styles */
-html,body,#appBootElement,.appRoot,.appContainer {
-  height:100%;
-  margin:0;
-}
+/*
+*  BASE
+*  Import all helpers, core styles and components
+*
+*/
 
-.content {
-  height:100%;
-  min-height:100%;/*for mozilla*/
-}
+/* Helpers: re-usable code (nothing here is compiled directly) */
+  //@import helpers here
 
-html>body .content {
-  height:auto;
-}
 
-.hero {
-  // background: url(../images/cat-bug-icon.png) center center / 75% 75% no-repeat scroll #f9f9f9;
-  background: url(../images/cat-bug-icon.png) center center no-repeat scroll #f9f9f9;
-}
+/* Foundation: Normalise, resets, base styles & typography */
+//@import foundation here
+@import "../styles/environment";
 
-.tiles {
-  padding: .5vw;
-  font-size: 0;
-  display: -ms-flexbox;
-  -ms-flex-wrap: wrap;
-  -ms-flex-direction: column;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  display: -webkit-box;
-  display: flex;
-}
 
-.tiles div {
-  -webkit-box-flex: auto;
-  -ms-flex: auto;
-  flex: auto;
-  width: 200px;
-  margin: .5vw;
-}
-
-section div img {
-  width: 100%;
-  height: auto;
-}
-
-@media screen and (max-width: 400px) {
-  section div { margin: 0; }
-  section { padding: 0; }
-}
-
-.socialBar {
-  text-align: center;
-  background-color: black;
-  padding: 10px 20px;
-}
-.socialBar h3{
-  color: white;
-  font-size: 30px;
-}
-
-.socialIcon {
-  height: 35px;
-  width: 35px;
-  padding: 10px;
-}
+/* Components */
+@import "../components/Hero/Hero";
+@import "../components/Tiles-section/Tiles";
+@import "../components/Footer/Footer";
