@@ -1,6 +1,9 @@
-var express = require('express'); // dependencies from npm (package.json)
+var express         = require('express'); // dependencies from npm (package.json)
+var path            = require('path');
 var webpack         = require('webpack');
 var webpackConfig   = require('../webpack.config.dev');
+
+var portNumber      = require('../portNumber');
 
 //Create Server
 var app = express();
@@ -13,24 +16,19 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.use(require('webpack-hot-middleware')(compiler));
 
 
-app.get('/', function (req, res) {
-  res.status(200).send(`
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <title>Test Document</title>
-      </head>
-
-      <body>
-        <h1>What what!</h1>
-      </body>
-
-    </html>
-  `);
+app.use('*', function (req, res, next) {
+  var filename = path.join(compiler.outputPath,'index.html');
+  compiler.outputFileSystem.readFile(filename, function(err, result){
+    if (err) {
+      return next(err);
+    }
+    res.set('content-type','text/html');
+    res.send(result);
+    res.end();
+  });
 });
 
 // Server setup
-var portNumber = process.env.SERVER_PORT || 3000;
 app.listen(portNumber, 'localhost', function(error){
   if (error) {
     console.log(error);
