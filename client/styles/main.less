@@ -1,34 +1,19 @@
-/* Base Styles */
-html,body,#appBootElement,.appRoot,.appContainer {
-  height:100%;
-  margin:0;
-}
+/*
+*  BASE
+*  Import all helpers, core styles and components
+*
+*/
 
-.content {
-  height:100%;
-  min-height:100%;/*for mozilla*/
-}
+/* Helpers: re-usable code (nothing here is compiled directly) */
+  //@import helpers here
 
-html>body .content {
-  height:auto;
-}
 
-.hero {
-  background: url(../images/cat-bug-icon.png) center center no-repeat scroll #f9f9f9;
-}
+/* Foundation: Normalise, resets, base styles & typography */
+//@import foundation here
+@import "../styles/environment";
 
-.socialBar {
-  text-align: center;
-  background-color: black;
-  padding: 10px 20px;
-}
-.socialBar h3{
-  color: white;
-  font-size: 30px;
-}
 
-.socialIcon {
-  height: 35px;
-  width: 35px;
-  padding: 10px;
-}
+/* Components */
+@import "../components/Hero/Hero";
+@import "../components/Tiles-section/Tiles";
+@import "../components/Footer/Footer";
