@@ -3,6 +3,8 @@ var path            = require('path');
 var webpack         = require('webpack');
 var webpackConfig   = require('../webpack.config.dev');
 
+var portNumber      = require('../portNumber');
+
 //Create Server
 var app = express();
 
@@ -27,7 +29,6 @@ app.use('*', function (req, res, next) {
 });
 
 // Server setup
-var portNumber = process.env.SERVER_PORT || 3000;
 app.listen(portNumber, 'localhost', function(error){
   if (error) {
     console.log(error);
